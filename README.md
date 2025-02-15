@@ -19,3 +19,9 @@ Rabbit Mq: localhost:15672
 login: guest
 pw: guest
 ```
+
+Docker build image
+
+```
+docker compose build identity-svc
+```
