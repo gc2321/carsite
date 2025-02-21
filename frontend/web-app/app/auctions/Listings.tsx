@@ -8,8 +8,8 @@ import { getData } from '../actions/auctionActions';
 import Filters from './Filters';
 import { useShallow } from 'zustand/react/shallow';
 import qs from 'query-string';
-import { useParamsStore } from '../hooks/userParamsStore';
 import EmptyFilter from '../components/EmptyFilter';
+import { useParamsStore } from '../hooks/userParamsStore';
 
 export default function Listings() {
     const [data, setData] = useState<PagedResult<Auction>>();
@@ -18,7 +18,9 @@ export default function Listings() {
         pageSize: state.pageSize,
         searchTerm: state.searchTerm,
         orderBy: state.orderBy,
-        filterBy: state.filterBy
+        filterBy: state.filterBy,
+        seller: state.seller,
+        winner: state.winner
     })));
     const setParams = useParamsStore(state => state.setParams);
     const url = qs.stringifyUrl({ url: '', query: params });
